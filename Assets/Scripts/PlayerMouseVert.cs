@@ -13,12 +13,11 @@ public class PlayerMouseVert : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
-    {
     {
 
         rotationX -= Input.GetAxis("Mouse Y") * sensitivity;
@@ -27,5 +26,4 @@ public class PlayerMouseVert : MonoBehaviour
         transform.localEulerAngles = new Vector3(rotationX, 0, 0);
 
     }
-}
 }

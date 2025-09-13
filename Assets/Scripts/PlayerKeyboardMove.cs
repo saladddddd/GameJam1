@@ -27,7 +27,7 @@ public class PlayerKeyboardMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -41,16 +41,15 @@ public class PlayerKeyboardMovement : MonoBehaviour
 
         //see if left shift is pressed in the current frame
         //not just the first frame it's pressed down
-        if (!Input.GetKey(KeyCode.LeftShift))
-        {
-            //shift is not pressed. not sprinting
-            currentSpeed = baseSpeed;
-        }
-        else
+        if(Input.GetKey(KeyCode.LeftShift))
         {
             //shift is pressed, so we are sprinting
             currentSpeed = baseSpeed + sprintSpeedAdd;
             Debug.Log("sprinting");
+        } else
+        {
+            //shift is not pressed. not sprinting
+            currentSpeed = baseSpeed;
         }
 
         //set Z (forward) and X (sideways) speed using GetAxis
@@ -63,21 +62,14 @@ public class PlayerKeyboardMovement : MonoBehaviour
 
         //check if we're grounded
         IsGrounded();
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
-        {
-            Debug.Log("jump");
-            //play jump sound
-           
-            GetComponent<Rigidbody>();
-        }
+
         float yspeed;
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if(Input.GetKeyDown(KeyCode.Space) && grounded )
         {
-            yspeed = jumpSpeed;
-        }
-        else
+             yspeed = jumpSpeed;
+        } else
         {
-            yspeed = GetComponent<Rigidbody>().linearVelocity.y;
+             yspeed = GetComponent<Rigidbody>().linearVelocity.y;
         }
 
         Vector3 movement = new Vector3(xspeed, yspeed, zspeed);
