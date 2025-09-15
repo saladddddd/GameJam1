@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PiercingPickup : MonoBehaviour
 {
+    public SoundController theSoundController; // assign in Inspector
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -11,6 +13,12 @@ public class PiercingPickup : MonoBehaviour
             {
                 shooter.ApplyPiercing();
             }
+
+            if (theSoundController != null)
+            {
+                theSoundController.buy();
+            }
+
             Destroy(gameObject);
         }
     }

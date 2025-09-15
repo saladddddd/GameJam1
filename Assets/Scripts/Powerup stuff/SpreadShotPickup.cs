@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SpreadShotPickup : MonoBehaviour
 {
+    public SoundController theSoundController;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -11,6 +13,12 @@ public class SpreadShotPickup : MonoBehaviour
             {
                 shooter.ApplySpreadShot();
             }
+
+            if (theSoundController != null)
+            {
+                theSoundController.buy();
+            }
+
             Destroy(gameObject);
         }
     }

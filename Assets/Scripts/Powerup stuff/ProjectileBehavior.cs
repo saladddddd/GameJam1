@@ -14,7 +14,6 @@ public class ProjectileBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            // TODO: enemy damage code here
 
             if (!piercing)
                 Destroy(gameObject);

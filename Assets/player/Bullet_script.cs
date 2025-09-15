@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
 {
+    public SoundController theSoundController;
+
     //projectile settings
     public GameObject projectilePrefab;
     public float forwardVelocity = 20;
@@ -24,6 +26,7 @@ public class PlayerProjectile : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && Time.time >= nextFireTime)
         {
+            theSoundController.shoot();
             FireProjectile();
         }
     }
